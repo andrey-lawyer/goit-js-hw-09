@@ -563,7 +563,6 @@ function optionSelectDates(date) {
 function onClickStart(date) {
     // доп кнопка
     buttonResetEl.disabled = false;
-    variable = false;
     // доп кнопка
     const choseDate = date.getTime();
     intervalId = setInterval(()=>{
