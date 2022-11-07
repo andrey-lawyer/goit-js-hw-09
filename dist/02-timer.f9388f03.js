@@ -558,8 +558,6 @@ function optionSelectDates(date) {
     buttonEl.disabled = false;
     return choseDate;
 }
-// let variable;
-//
 function onClickStart(date) {
     // доп кнопка
     buttonResetEl.disabled = false;
@@ -567,14 +565,13 @@ function onClickStart(date) {
     const choseDate = date.getTime();
     let intervalId = setInterval(()=>{
         const deltaTime2 = choseDate - Date.now();
-        if (deltaTime2 <= 0) {
-            buttonEl.disabled = true;
-            buttonResetEl.disabled = true;
-            variable = true;
-            (0, _notiflixDefault.default).Notify.warning("Sorry, the date cannot be negative");
-            clearInterval(intervalId);
-            return;
-        }
+        // if (deltaTime2 <= 0) {
+        //   buttonEl.disabled = true;
+        //   buttonResetEl.disabled = true;
+        //   Notiflix.Notify.warning('Sorry, the date cannot be negative');
+        //   clearInterval(intervalId);
+        //   return;
+        // }
         const time = convertMs(deltaTime2);
         const { days , hours , minutes , seconds  } = time;
         arraydataEl[0].textContent = addLeadingZero(days) + " :";
@@ -585,7 +582,6 @@ function onClickStart(date) {
         if (deltaTime2 > -1000 && deltaTime2 < 1000 && seconds === 0) {
             buttonEl.disabled = true;
             buttonResetEl.disabled = true;
-            variable = true;
             clearInterval(intervalId);
         }
     }, 1000);
