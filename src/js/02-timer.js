@@ -56,17 +56,17 @@ function onClickStart(date) {
 
   // доп кнопка
   const choseDate = date.getTime();
-  intervalId = setInterval(() => {
+  let intervalId = setInterval(() => {
     const deltaTime2 = choseDate - Date.now();
 
-    // if (deltaTime2 <= 0) {
-    //   buttonEl.disabled = true;
-    //   buttonResetEl.disabled = true;
-    //   variable = true;
-    //   Notiflix.Notify.warning('Sorry, the date cannot be negative');
-    //   clearInterval(intervalId);
-    //   return;
-    // }
+    if (deltaTime2 <= 0) {
+      buttonEl.disabled = true;
+      buttonResetEl.disabled = true;
+      variable = true;
+      Notiflix.Notify.warning('Sorry, the date cannot be negative');
+      clearInterval(intervalId);
+      return;
+    }
     const time = convertMs(deltaTime2);
     const { days, hours, minutes, seconds } = time;
     arraydataEl[0].textContent = addLeadingZero(days) + ' :';
