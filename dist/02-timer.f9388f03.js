@@ -570,6 +570,7 @@ function onClickStart(date) {
             buttonResetEl.disabled = true;
             (0, _notiflixDefault.default).Notify.warning("Sorry, the date cannot be negative");
             clearInterval(intervalId);
+            return;
         }
         const time = convertMs(deltaTime2);
         const { days , hours , minutes , seconds  } = time;
