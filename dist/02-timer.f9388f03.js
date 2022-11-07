@@ -565,13 +565,12 @@ function onClickStart(date) {
     const choseDate = date.getTime();
     let intervalId = setInterval(()=>{
         const deltaTime2 = choseDate - Date.now();
-        // if (deltaTime2 <= 0) {
-        //   buttonEl.disabled = true;
-        //   buttonResetEl.disabled = true;
-        //   Notiflix.Notify.warning('Sorry, the date cannot be negative');
-        //   clearInterval(intervalId);
-        //   return;
-        // }
+        if (deltaTime2 <= 0) {
+            buttonEl.disabled = true;
+            buttonResetEl.disabled = true;
+            (0, _notiflixDefault.default).Notify.warning("Sorry, the date cannot be negative");
+            clearInterval(intervalId);
+        }
         const time = convertMs(deltaTime2);
         const { days , hours , minutes , seconds  } = time;
         arraydataEl[0].textContent = addLeadingZero(days) + " :";

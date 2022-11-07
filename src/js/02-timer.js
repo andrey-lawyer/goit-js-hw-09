@@ -58,13 +58,12 @@ function onClickStart(date) {
   let intervalId = setInterval(() => {
     const deltaTime2 = choseDate - Date.now();
 
-    // if (deltaTime2 <= 0) {
-    //   buttonEl.disabled = true;
-    //   buttonResetEl.disabled = true;
-    //   Notiflix.Notify.warning('Sorry, the date cannot be negative');
-    //   clearInterval(intervalId);
-    //   return;
-    // }
+    if (deltaTime2 <= 0) {
+      buttonEl.disabled = true;
+      buttonResetEl.disabled = true;
+      Notiflix.Notify.warning('Sorry, the date cannot be negative');
+      clearInterval(intervalId);
+    }
     const time = convertMs(deltaTime2);
     const { days, hours, minutes, seconds } = time;
     arraydataEl[0].textContent = addLeadingZero(days) + ' :';
