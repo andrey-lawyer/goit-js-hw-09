@@ -48,8 +48,7 @@ function optionSelectDates(date) {
   buttonEl.disabled = false;
   return choseDate;
 }
-// let variable;
-//
+
 function onClickStart(date) {
   // доп кнопка
   buttonResetEl.disabled = false;
@@ -62,7 +61,6 @@ function onClickStart(date) {
     if (deltaTime2 <= 0) {
       buttonEl.disabled = true;
       buttonResetEl.disabled = true;
-      variable = true;
       Notiflix.Notify.warning('Sorry, the date cannot be negative');
       clearInterval(intervalId);
       return;
@@ -77,7 +75,7 @@ function onClickStart(date) {
     if (deltaTime2 > -1000 && deltaTime2 < 1000 && seconds === 0) {
       buttonEl.disabled = true;
       buttonResetEl.disabled = true;
-      variable = true;
+
       clearInterval(intervalId);
     }
   }, 1000);
